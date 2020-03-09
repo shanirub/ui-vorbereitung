@@ -3,21 +3,23 @@ package com.company;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.beans.*;
 import java.lang.annotation.Annotation;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
-public class Display extends JPanel {
+public class Display extends JPanel implements ItemListener {
     transient SimpleDateFormat formatter;
     String date;
     JLabel label;
     transient Timer timer;
 
     public Display() {
-        formatter = new SimpleDateFormat();
-        formatter.format(DateFormat.getDateInstance());
+        formatter = new SimpleDateFormat(String.valueOf(SimpleDateFormat.FULL), Locale.getDefault());
 
         label = new JLabel();
         label.setForeground(Color.RED);
@@ -50,6 +52,11 @@ public class Display extends JPanel {
 
         this.setVisible(true);
         
+
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent itemEvent) {
 
     }
 }

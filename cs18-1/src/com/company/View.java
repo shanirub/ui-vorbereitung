@@ -6,6 +6,7 @@ import java.awt.*;
 public class View extends JFrame {
 
     JLabel label;
+    Display uhranzeige;
 
     public View() {
         super();
@@ -39,8 +40,13 @@ public class View extends JFrame {
         p.add(counter, BorderLayout.SOUTH);
         p.add(clocks, BorderLayout.NORTH);
 
+        uhranzeige = new Display();
+        p.add(uhranzeige, BorderLayout.EAST);
+
         this.add(p, BorderLayout.EAST);
         this.pack();
+
+
 
         this.setVisible(true);
 
